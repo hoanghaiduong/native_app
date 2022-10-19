@@ -17,6 +17,7 @@ import { Platform } from "react-native";
 import HomeScreen from "./src/Screens/HomeScreen";
 import LoginScreen from "./src/Screens/LoginScreen";
 import RegisterScreen from "./src/Screens/RegisterScreen";
+import NotVerifyScreen from "./src/Screens/NotVerifyScreen";
 
 // Define the config
 const config = {
@@ -30,7 +31,7 @@ export const theme = extendTheme({ config });
 export default function App() {
   return (
     <NativeBaseProvider>
-      <RegisterScreen />
+      <HomeScreen />
   
     </NativeBaseProvider>
   );

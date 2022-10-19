@@ -3,7 +3,7 @@ import { Box, Button, Heading, Image, Input, Pressable, Text, View, VStack } fro
 import colors from '../colors'
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+
 function LoginScreen() {
     return (
         <Box flex={1}>
