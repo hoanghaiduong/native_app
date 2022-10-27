@@ -1,26 +1,17 @@
 import React from "react";
 import {
-  Text,
-  Link,
-  HStack,
-  Center,
-  Heading,
-  Switch,
-  useColorMode,
+
   NativeBaseProvider,
   extendTheme,
-  VStack,
-  Box,
+  StatusBar,
+
 } from "native-base";
-import NativeBaseIcon from "./components/NativeBaseIcon";
-import { Platform } from "react-native";
-import HomeScreen from "./src/Screens/HomeScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/Screens/LoginScreen";
 import RegisterScreen from "./src/Screens/RegisterScreen";
-import NotVerifyScreen from "./src/Screens/NotVerifyScreen";
-import SingleProductScreen from "./src/Screens/SingleProductScreen";
-import CartScreen from "./src/Screens/CartScreen";
-import ProfileScreen from "./src/Screens/ProfileScreen";
+import OrderScreen from "./src/Screens/OrderScreen";
+import BottomNav from "./src/Navigations/BottomNav";
 
 // Define the config
 const config = {
@@ -30,12 +21,23 @@ const config = {
 
 // extend the theme
 export const theme = extendTheme({ config });
-
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NativeBaseProvider>
-      <ProfileScreen />
-  
+      <NavigationContainer>
+        <StatusBar hidden={true} />
+        <Stack.Navigator
+          initialRouteName="Login"
+          screenOptions={{
+            headerShown: false
+          }}>
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="order" component={OrderScreen} />
+            <Stack.Screen name="Bottom" component={BottomNav} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </NativeBaseProvider>
   );
 }

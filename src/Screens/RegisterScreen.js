@@ -5,7 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
-function RegisterScreen() {
+function RegisterScreen({navigation}) {
     return (
         <Box flex={1}>
             <Image
@@ -58,9 +58,15 @@ function RegisterScreen() {
 
                         }}
 
-                        my={30} w="40%" mx="0" rounded={"md"} bg={"emerald.400"}>Register</Button>
+                        my={30} w="40%" mx="0" rounded={"md"} bg={"emerald.400"}
+                        onPress={() => navigation.navigate(
+                            "Bottom"
+                        )}
+                        >Register</Button>
                     <Pressable mt={4} >
-                        <Text color={colors.deepestGray}>LOGIN</Text>
+                        <Text color={colors.deepestGray}  onPress={() => navigation.navigate(
+                        "Login"
+                    )}>LOGIN</Text>
                     </Pressable>
                 </Box>
 

@@ -6,7 +6,7 @@ function Buttons({mt,bg,color,children,onPress}) {
     <Button w="full" h={55} rounded="full" bg={bg} mt={mt} _text={{
         color:color,fontWeight:"bold"
     }}
-    _pressed={{bg:bg}}
+    _pressed={{bg:bg,opacity:.1}}
     onPress={onPress} 
     >{children}</Button>
   )

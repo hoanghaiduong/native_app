@@ -5,7 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Platform } from 'react-native';
 
-function LoginScreen() {
+function LoginScreen({ navigation }) {
     return (
 
 
@@ -28,7 +28,7 @@ function LoginScreen() {
                 <Heading color={"emerald.400"}>Login</Heading>
 
                 <VStack space={8} pt={6}>
-                 
+
                     <Input
                         InputLeftElement={<MaterialIcons name="email" size={20} color={colors.main} />}
                         variant={"underlined"}
@@ -59,8 +59,15 @@ function LoginScreen() {
 
                     }}
 
-                    my={30} w="40%" rounded={50} bg={"emerald.400"}>Login</Button>
-                <Pressable mt={4} >
+                    my={30} w="40%" rounded={50} bg={"emerald.400"}
+                    onPress={() => navigation.navigate(
+                        "Bottom"
+                    )}
+
+                >Login</Button>
+                <Pressable mt={4}  onPress={() => navigation.navigate(
+                        "Register"
+                    )}>
                     <Text color={colors.deepestGray}>SIGN UP</Text>
                 </Pressable>
             </Box>

@@ -1,14 +1,20 @@
+import { useNavigation } from '@react-navigation/native';
 import { Box, Flex, Heading, Image, Pressable, ScrollView, Text } from 'native-base'
 import React from 'react'
 import { productsData } from '../data/Products'
 import Rating from './Rating'
 
 function HomeProducts() {
+  const navigation=useNavigation();
   return (
     <ScrollView flex={1} showsVerticalScrollIndicator={false}>
         <Flex flexWrap={"wrap"} direction="row" justifyContent={"space-between"} px={6}>
           {productsData.map((product,index)=>(
+            
             <Pressable
+            onPress={() => navigation.navigate(
+              "Single",product
+          )}
               key={index}
               w="47%"
               bg={"white"}

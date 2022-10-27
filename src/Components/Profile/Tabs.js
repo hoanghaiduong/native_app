@@ -1,4 +1,4 @@
-import { Text } from 'native-base'
+import { Box, KeyboardAvoidingView, Text } from 'native-base'
 import React, { useState } from 'react'
 import { StyleSheet, useWindowDimensions } from 'react-native';
 import { SceneMap, TabBar, TabView } from 'react-native-tab-view'
@@ -22,33 +22,35 @@ const Tabs = () => {
         },
     ]);
     const renderTabsBar = (props) => (
+         
         <TabBar {...props}
             tabStyle={styles.tabStyle}
-            indicatorStyle={{ backgroundColor: colors.black }} activeColor={colors.main}
-            inactiveColor={colors.white}
+            indicatorStyle={{ backgroundColor: colors.black}} activeColor={colors.main}
+            
+            inactiveColor={colors.black}
             renderLabel={({ route, color }) => (
                 <Text style={{color,...styles.text}}>{route.title}</Text>
             )} />
     )
     return (
-        <>
            <TabView navigationState={{index,routes}}
            renderScene={renderScene}
            onIndexChange={setIndex}
            initialLayout={{width:layout.width}}
            renderTabBar={renderTabsBar}
-           ></TabView>
-        </>
+           />
     )
 }
 const styles = StyleSheet.create(
     {
         tabStyle:{
-            backgroundColor:"black",
+            backgroundColor:colors.white,
+                
         },
         text:{
             fontSize:13,
-            fontWeight:"bold"
+            fontWeight:"bold",
+           
         }
     }
 )
